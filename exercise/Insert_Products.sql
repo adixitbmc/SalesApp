@@ -1,0 +1,10 @@
+INSERT INTO ProductTable (ProductName) VALUES ("Product1");
+INSERT INTO ProductTable (ProductName) VALUES ("Product2");
+INSERT INTO ProductTable (ProductName) VALUES ("Product3");
+INSERT INTO ProductTable (ProductName) VALUES ("Product4");
+INSERT INTO ProductTable (ProductName) VALUES ("Product5");
+INSERT INTO ProductTable (ProductName) VALUES ("Product6");
+INSERT INTO ProductTable (ProductName) VALUES ("Product7");
+INSERT INTO ProductTable (ProductName) VALUES ("Product8");
+INSERT INTO ProductTable (ProductName) VALUES ("Product9");
+INSERT INTO ProductTable (ProductName) VALUES ("Product10");

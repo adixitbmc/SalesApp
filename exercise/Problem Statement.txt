@@ -1,0 +1,65 @@
+Programming requirement is given below.
+For the given exercise, please provide the following.
+
+1. Write up estimate
+2. Brief design
+3. Do the assignment including JUnits - make sure it compiles and run and the test cases pass
+4. Extra credit for using Spring/Hibernate JPA.
+
+
+Program Requirements
+--------------------
+=========================SQL===============================
+
+1.	Populate a Mysql database with the following information
+
+DDL
+
+Create Database with following tables 
+SalesEntry 
+- SalesId
+- DateofSale
+- ProductID
+- SaleAmount
+
+ProductTable
+-ProductID
+-ProductName
+
+
+DML
+
+Add 10 products  Product1, Product2……Product10 
+
+Add several salesentry records with sales amounts 10, 20, …..100 etc for several different dates
+
+
+=================JAVA :   Open the empty shell Eclipse project to complete the Java exercise using Spring / Hibernate ========================
+
+2. Wire up the database with the most appropriate technology.
+
+3. Write a REST API using Spring Controller that queries the data access layer and returns the aggregated report of sales per product in JSON format as a HTTP 
+response. The output should contain product name, total items sold and total ammount for each product as follows.
+                
+ Product Name,   Total # sold,    Total Amount
+  Product1              324           $37382.9
+  Product2               67            $4982.9
+  Product3             1382             $382.9
+
+4. A valid incoming REST request is expected to contain a HTTP header "AUTHENTICATION_ID" with a value of 99. Implement this validation in the code.
+
+4. Create pom.xml to build / deploy / test the project.
+
+5. Write POSTMAN based test script (or curl or any other suitable script) that can be executed against the running instance of the REST API. 
+
+You have 4 hours to work on this project. 
+
+==============================================================================
+
+Extra credits for: 
+
+Good java code quality
+Compilable and testable code
+Test cases 
+Appropriate use of Spring/Hibernate.
+REST API design (resource definition, choice of verb, response format)

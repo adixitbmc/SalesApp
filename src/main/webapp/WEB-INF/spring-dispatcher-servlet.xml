@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="  
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<context:component-scan base-package="com.amol.exercise.sales.controller"/>
+	<context:property-placeholder location="classpath:application.properties" />
+
+	<bean id="test" class="com.amol.exercise.sales.service.DataServiceImpl"/>
+    <bean id="appcontext" class="com.test.amol.execcise.sales.dao.DaoTest"/>
+    
+	<bean name="customFilterBean" class="com.amol.exercise.sales.security.CustomFilter">
+	</bean>
+	
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+	
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${spring.datasource.driverClassName}" />
+		<property name="url" value="${spring.datasource.url}" />
+		<property name="username" value="${spring.datasource.username}" />
+		<property name="password" value="${spring.datasource.password}" />
+	</bean>
+	
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource"><ref bean="dataSource"/></property>
+	</bean>
+	
+	<bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="messageConverters">
+          <list>
+            <ref bean="jsonConverter"/>
+          </list>
+    	</property>
+	</bean>
+
+	<bean id="dao" class="com.amol.exercise.sales.dao.DaoImpl">
+		<property name="jdbcTemplate"><ref bean="jdbcTemplate"/></property>
+	</bean>
+	<bean id="dataService" class="com.amol.exercise.sales.service.DataServiceImpl">
+		<property name="Dao"><ref bean="dao"/></property>
+	</bean>
+	
+	<bean
+	  class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	  <property name="prefix">
+		<value>/WEB-INF/pages/</value>
+	  </property>
+	  <property name="suffix">
+		<value>.jsp</value>
+	  </property>
+	</bean>
+	
+	</beans>
+	
